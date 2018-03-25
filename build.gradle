@@ -47,4 +47,7 @@ ext {
     // RxJava, RxAndroid
     rxJava2Version = '2.1.12'
     rxAndroid2Version = '2.0.2'
+
+    //Dagger2
+    daggerVersion = '2.11'
 }

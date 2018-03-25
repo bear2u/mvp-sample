@@ -10,7 +10,10 @@ import android.widget.Toast;
 import com.dev_juyoung.cro_mvp_sample.base.BaseActivity;
 import com.dev_juyoung.cro_mvp_sample.data.ImageRepository;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
+import dagger.android.AndroidInjection;
 
 public class MainActivity extends BaseActivity<MainContract.View, MainContract.Presenter> implements MainContract.View {
     private static final String TAG = "MainActivity";
@@ -22,13 +25,18 @@ public class MainActivity extends BaseActivity<MainContract.View, MainContract.P
 
     private ImageAdapter mAdapter;
 
+    @Inject
+    MainPresenter mainPresenter;
+
     @Override
     protected MainContract.Presenter setPresenter() {
-        return new MainPresenter();
+//        return new MainPresenter();
+        return mainPresenter;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

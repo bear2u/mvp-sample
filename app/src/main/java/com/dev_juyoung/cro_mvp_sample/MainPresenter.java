@@ -12,6 +12,8 @@ import com.dev_juyoung.cro_mvp_sample.utils.OnItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -28,6 +30,11 @@ public class MainPresenter extends BasePresenterImpl<MainContract.View> implemen
     private ImageAdapterContract.View adapterView;
     private ImageAdapterContract.Model adapterModel;
     private ImageRepository repository;
+
+    @Inject
+    public MainPresenter(){
+
+    }
 
     @Override
     public void setAdapterView(ImageAdapterContract.View adapterView) {
